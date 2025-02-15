@@ -44,12 +44,6 @@ const Page = () => {
             </h1>
           </Link>
 
-          <Link href="/experiences">
-            <h1 className="hover:text-gray-400 cursor-pointer whitespace-nowrap transition-colors duration-300 hover:text-blue-300">
-              Experience
-            </h1>
-          </Link>
-
           <Link href="/contacts">
             <h1 className="hover:text-gray-400 cursor-pointer whitespace-nowrap transition-colors duration-300 hover:text-blue-300">
               Contact

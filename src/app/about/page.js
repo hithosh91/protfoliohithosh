@@ -40,10 +40,9 @@ const Page = () => {
 
           <nav
             className={`lg:flex lg:space-x-8 text-lg text-white absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out ${
-              isMenuOpen
-                ? "translate-y-0"
-                : "-translate-y-full opacity-0 pointer-events-none"
-            }`}
+              isMenuOpen ? "translate-y-0" : "-translate-y-full" // Only translate on mobile
+            }
+             lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto`}
           >
             <Link
               href="/"

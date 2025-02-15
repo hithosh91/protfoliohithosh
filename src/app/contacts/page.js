@@ -59,9 +59,7 @@ const Page = () => {
             <Link href="/skills" className="hover:text-gray-400">
               Skills
             </Link>
-            <Link href="/experiences" className="hover:text-gray-400">
-              Experience
-            </Link>
+
             <Link href="/contacts" className="hover:text-gray-400">
               Contact
             </Link>

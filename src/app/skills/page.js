@@ -6,7 +6,7 @@ import { skillData } from "@/utils/skills";
 import { useState } from "react";
 
 const Page = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   return (
     <div className="min-h-screen bg-[#040F16] flex flex-col items-center overflow-hidden">
