@@ -20,6 +20,7 @@ const Page = () => {
           <button
             className="lg:hidden text-white focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu state
+            aria-label="Toggle Navigation" // Accessibility
           >
             <svg
               className="w-6 h-6"
@@ -62,12 +63,7 @@ const Page = () => {
             >
               Skills
             </Link>
-            <Link
-              href="/experiences"
-              className="hover:text-gray-400 block lg:inline-block"
-            >
-              Experience
-            </Link>
+
             <Link
               href="/contacts"
               className="hover:text-gray-400 block lg:inline-block"
