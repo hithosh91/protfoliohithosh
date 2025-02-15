@@ -1,30 +1,77 @@
+"use client";
+
 import Link from "next/link";
 import { FaGraduationCap } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { experienceData } from "./../../utils/Experience";
+import { useState } from "react"; // Import useState
 
 const Page = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex flex-col items-center">
       <header className="w-full fixed top-0 z-50 bg-gradient-to-r from-gray-800 to-blue-900 shadow-xl">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
             Portfolio
           </h1>
-          <nav className="text-lg text-white flex space-x-8">
-            <Link href="/" className="hover:text-gray-400">
+
+          <button
+            className="lg:hidden text-white focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu state
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <nav
+            className={`lg:flex lg:space-x-8 text-lg text-white absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out ${
+              isMenuOpen
+                ? "translate-y-0"
+                : "-translate-y-full opacity-0 pointer-events-none"
+            }`}
+          >
+            <Link
+              href="/"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Home
             </Link>
-            <Link href="/about" className="hover:text-gray-400">
+            <Link
+              href="/about"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               About
             </Link>
-            <Link href="/skills" className="hover:text-gray-400">
+            <Link
+              href="/skills"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Skills
             </Link>
-            <Link href="/experiences">
-              <h1 className="hover:text-gray-400 cursor-pointer">Experience</h1>
+            <Link
+              href="/experiences"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
+              Experience
             </Link>
-            <Link href="/contacts" className="hover:text-gray-400">
+            <Link
+              href="/contacts"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Contact
             </Link>
           </nav>
@@ -32,11 +79,10 @@ const Page = () => {
       </header>
 
       <main className="container mx-auto px-6 pt-24 pb-12 mt-20 flex-1">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Education Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <section
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl
-                            transform transition duration-500 hover:scale-[1.02] 
+                            transform transition duration-500 hover:scale-[1.02]
                             border border-white/20"
           >
             <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -71,7 +117,6 @@ const Page = () => {
             </div>
           </section>
 
-          {/* Experience Section */}
           <section
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl
                             transform transition duration-500 hover:scale-[1.02]
