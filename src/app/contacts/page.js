@@ -11,7 +11,7 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -49,18 +49,58 @@ const Page = () => {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
             Portfolio
           </h1>
-          <nav className="flex space-x-8 text-lg text-white">
-            <Link href="/" className="hover:text-gray-400">
+
+          <button
+            className="lg:hidden text-white focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu state
+            aria-label="Toggle Navigation" // Accessibility
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <nav
+            className={`lg:flex lg:space-x-8 text-lg text-white absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out ${
+              isMenuOpen
+                ? "translate-y-0"
+                : "-translate-y-full opacity-0 pointer-events-none"
+            }`}
+          >
+            <Link
+              href="/"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Home
             </Link>
-            <Link href="/about" className="hover:text-gray-400">
+            <Link
+              href="/about"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               About
             </Link>
-            <Link href="/skills" className="hover:text-gray-400">
+            <Link
+              href="/skills"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Skills
             </Link>
 
-            <Link href="/contacts" className="hover:text-gray-400">
+            <Link
+              href="/contacts"
+              className="hover:text-gray-400 block lg:inline-block"
+            >
               Contact
             </Link>
           </nav>

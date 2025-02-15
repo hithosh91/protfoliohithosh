@@ -6,7 +6,7 @@ import { skillData } from "@/utils/skills";
 import { useState } from "react";
 
 const Page = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Start menu as closed on mobile
 
   return (
     <div className="min-h-screen bg-[#040F16] flex flex-col items-center overflow-hidden">
@@ -16,6 +16,7 @@ const Page = () => {
             Portfolio
           </h1>
 
+          {/* Mobile Hamburger Menu */}
           <button
             className="lg:hidden text-white focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu state
@@ -37,12 +38,11 @@ const Page = () => {
             </svg>
           </button>
 
+          {/* Desktop Navbar */}
           <nav
-            className={`lg:flex lg:space-x-8 text-lg text-white absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out ${
-              isMenuOpen
-                ? "translate-y-0"
-                : "-translate-y-full opacity-0 pointer-events-none"
-            }`}
+            className={`lg:flex lg:space-x-8 text-lg text-white ${
+              isMenuOpen ? "block" : "hidden"
+            } absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out`}
           >
             <Link
               href="/"
@@ -75,7 +75,7 @@ const Page = () => {
 
       {/* Skills Section */}
       <main className="w-full flex-grow flex flex-col items-center justify-center py-20">
-        <h1 className="text-white text-3xl md:text-4xl font-bold mb-8">
+        <h1 className="text-white text-3xl md:text-4xl font-bold mb-8 text-center">
           Skills
         </h1>
         <div className="container mx-auto px-4">
@@ -83,14 +83,14 @@ const Page = () => {
             {skillData.map((data, id) => (
               <div
                 key={id}
-                className="bg-[#1E2A47] p-6 rounded-2xl shadow-md hover:scale-105 transform transition duration-300"
+                className="bg-[#1E2A47] p-6 rounded-2xl shadow-md hover:scale-105 transform transition duration-300 ease-in-out"
               >
                 <div className="flex items-center justify-center h-20 mb-4">
                   <Image
                     src={data.image}
                     alt={data.name}
                     width={60}
-                    height={40}
+                    height={60} // Ensures square aspect ratio
                     className="mx-auto transition-transform duration-300 hover:scale-110"
                     style={{ width: "auto", height: "auto" }} // Ensuring aspect ratio is maintained
                   />

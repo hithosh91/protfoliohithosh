@@ -4,10 +4,10 @@ import Link from "next/link";
 import { FaGraduationCap } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { experienceData } from "./../../utils/Experience";
-import { useState } from "react"; // Import useState
+import { useState } from "react";
 
 const Page = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(true); // State for mobile menu
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex flex-col items-center">
@@ -40,9 +40,10 @@ const Page = () => {
 
           <nav
             className={`lg:flex lg:space-x-8 text-lg text-white absolute lg:static top-full left-0 w-full bg-gray-800 lg:bg-transparent py-4 lg:py-0 px-6 transition-all duration-300 ease-in-out ${
-              isMenuOpen ? "translate-y-0" : "-translate-y-full" // Only translate on mobile
-            }
-             lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto`}
+              isMenuOpen
+                ? "translate-y-0"
+                : "-translate-y-full opacity-0 pointer-events-none"
+            }`}
           >
             <Link
               href="/"
@@ -74,11 +75,11 @@ const Page = () => {
       </header>
 
       <main className="container mx-auto px-6 pt-24 pb-12 mt-20 flex-1">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
           <section
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl
-                            transform transition duration-500 hover:scale-[1.02]
-                            border border-white/20"
+                           transform transition duration-500 hover:scale-[1.02]
+                           border border-white/20"
           >
             <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               <FaGraduationCap className="inline-block mr-3 mb-1" />
@@ -114,8 +115,8 @@ const Page = () => {
 
           <section
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl
-                            transform transition duration-500 hover:scale-[1.02]
-                            border border-white/20"
+                           transform transition duration-500 hover:scale-[1.02]
+                           border border-white/20"
           >
             <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               <MdWork className="inline-block mr-3 mb-1" />
