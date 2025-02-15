@@ -75,8 +75,10 @@ const Page = () => {
             <div className="text-white space-y-6 md:pr-12">
               <h1 className="text-4xl md:text-5xl font-bold">Let's Connect!</h1>
               <p className="text-lg text-gray-300">
-                Feel free to reach out for collaborations, inquiries, or just a
-                friendly chat. I'm always excited to explore new opportunities.
+                I'm always open to exciting opportunities, collaborations, and
+                meaningful conversations. Feel free to reach out for any
+                inquiries—I'm eager to connect and explore how we can create
+                value together.
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 md:p-12">
